@@ -113,6 +113,7 @@
             return;
         }
         spinning = true;
+        resultText = "...";
         // take a random item from the items list taking into account the probability
         let randomItem;
         let total = d3.sum(items, d => d.value);
@@ -126,6 +127,10 @@
                 console.log("Selected item", d.label);
             }
         });
+        if (!randomItem) {
+            console.error("No item selected");
+            return;
+        }
         let targetAngle = (randomItem.startAngle + randomItem.endAngle) / 2;
         let rotation = 5 * 360 - targetAngle * 180 / Math.PI;
         console.log("Rotation", rotation/360);
