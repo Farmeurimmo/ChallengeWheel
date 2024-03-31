@@ -85,13 +85,13 @@
         svg.append("defs")
             .append("pattern")
             .attr("id", "malusPattern")
-            .attr("width", "1")
-            .attr("height", "1")
-            .attr("patternUnits", "objectBoundingBox")
+            .attr("width", "100")
+            .attr("height", "100")
+            .attr("patternUnits", "userSpaceOnUse")
             .append("image")
             .attr("xlink:href", "/malus.jpg")
-            .attr("width", "1")
-            .attr("height", "1")
+            .attr("width", "400")
+            .attr("height", "400")
             .attr("preserveAspectRatio", "none");
 
         const path = svg.selectAll("path")
