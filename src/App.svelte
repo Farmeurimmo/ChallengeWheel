@@ -131,6 +131,7 @@
             console.error("No item selected");
             return;
         }
+        // @ts-ignore
         let targetAngle = (randomItem.startAngle + randomItem.endAngle) / 2;
         let rotation = 5 * 360 - targetAngle * 180 / Math.PI;
         console.log("Rotation", rotation/360);
@@ -171,6 +172,6 @@
     </section>
     <button class="mt-28" class:spinning on:click={spinWheel}>Lancer la roue</button>
     <section class="mt-40" id="details">
-        <p>Site réalisé par <a href="https://farmeurimmo.fr">Farmeurimmo</a></p>
+        <p>Site réalisé par <a href="https://farmeurimmo.fr">Farmeurimmo</a> | Open Source sur <a href="https://github.com/Farmeurimmo/ChallengeWheel">GitHub</a></p>
     </section>
 </main>
