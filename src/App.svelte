@@ -9,6 +9,7 @@
     const colorMapping = {
         "Malus": "purple",
         "Bonus": "green",
+        "Bonus extrême": "blue",
         "Malus extrême": "red",
         "Neutre": "yellow"
     };
@@ -44,6 +45,7 @@
                 category: d.category
             });
         });
+
         return items;
     }
 
@@ -77,6 +79,7 @@
         const arc = d3.arc().innerRadius(0).outerRadius(radius);
 
         items = pie(getItem());
+
         items.forEach((d, i) => {
             d.category = data[i].category;
             d.label = data[i].label;
@@ -90,16 +93,40 @@
             .attr("patternUnits", "userSpaceOnUse")
             .append("image")
             .attr("xlink:href", "/malus.jpg")
+            .attr("width", "200")
+            .attr("height", "200")
+            .attr("preserveAspectRatio", "none");
+
+        svg.append("defs")
+            .append("pattern")
+            .attr("id", "bonusPattern")
+            .attr("width", "100")
+            .attr("height", "100")
+            .attr("patternUnits", "userSpaceOnUse")
+            .append("image")
+            .attr("xlink:href", "/bonus.jpg")
+            .attr("width", "200")
+            .attr("height", "200")
+            .attr("preserveAspectRatio", "none");
+
+        svg.append("defs")
+            .append("pattern")
+            .attr("id", "neutrePattern")
+            .attr("width", "100")
+            .attr("height", "100")
+            .attr("patternUnits", "userSpaceOnUse")
+            .append("image")
+            .attr("xlink:href", "/neutre.jpg")
             .attr("width", "400")
             .attr("height", "400")
             .attr("preserveAspectRatio", "none");
 
         const path = svg.selectAll("path")
-            .data(pie(items))
+            .data(items)
             .enter()
             .append("path")
             .attr("d", arc)
-            .attr("fill", d => d.data.category === "Malus" ? "url(#malusPattern)" : colorMapping[d.data.category])
+            .attr("fill", d => d.data.category === "Malus" ? "url(#malusPattern)" : d.data.category === "Malus extrême" ? "red" : d.data.category === "Bonus" ? "url(#bonusPattern)" : d.data.category === "Bonus extrême" ? "blue" : "url(#neutrePattern)")
             .attr("stroke", "white")
             .attr("stroke-width", "2px")
             .on("mouseover", function (event, d) {
