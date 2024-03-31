@@ -82,14 +82,24 @@
             d.label = data[i].label;
         });
 
-        console.log(items);
+        svg.append("defs")
+            .append("pattern")
+            .attr("id", "malusPattern")
+            .attr("width", "1")
+            .attr("height", "1")
+            .attr("patternUnits", "objectBoundingBox")
+            .append("image")
+            .attr("xlink:href", "/malus.jpg")
+            .attr("width", "1")
+            .attr("height", "1")
+            .attr("preserveAspectRatio", "none");
 
         const path = svg.selectAll("path")
             .data(pie(items))
             .enter()
             .append("path")
             .attr("d", arc)
-            .attr("fill", d => colorMapping[d.data.category])
+            .attr("fill", d => d.data.category === "Malus" ? "url(#malusPattern)" : colorMapping[d.data.category])
             .attr("stroke", "white")
             .attr("stroke-width", "2px")
             .on("mouseover", function (event, d) {
@@ -121,10 +131,8 @@
         let sum = 0;
         items.forEach(d => {
             sum += d.value;
-            console.log(sum, random);
             if (sum >= random && !randomItem) {
                 randomItem = d;
-                console.log("Selected item", d.label);
             }
         });
         if (!randomItem) {
@@ -134,7 +142,6 @@
         // @ts-ignore
         let targetAngle = (randomItem.startAngle + randomItem.endAngle) / 2;
         let rotation = 5 * 360 - targetAngle * 180 / Math.PI;
-        console.log("Rotation", rotation/360);
 
 
         svg.transition()
