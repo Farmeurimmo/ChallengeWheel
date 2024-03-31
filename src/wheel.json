@@ -1,0 +1,72 @@
+{
+  "Malus extrême": [
+    {
+      "description": "relâcher un pokemon de ton équipe au hasard",
+      "probability": "1"
+    }
+  ],
+  "Bonus extrême": [
+    {
+      "description": "si une mort dans les 10 prochaines minutes, elle ne compte pas",
+      "probability": "1"
+    },
+    {
+      "description": "droit de revive un pokemon le temps du live uniquement",
+      "probability": "1"
+    }
+  ],
+  "Malus": [
+    {
+      "description": "jouer avec l'écran inversé pendant 5 minutes",
+      "probability": "8"
+    },
+    {
+      "description": "Prochaine attaque apprise par niveau, obligé de ne pas lui apprendre l'attaque",
+      "probability": "10"
+    },
+    {
+      "description": "pas d’objet en combat pendant 20 minutes",
+      "probability": "11"
+    },
+    {
+      "description": "pas d’objet tenu pendant 30 minutes",
+      "probability": "11"
+    },
+    {
+      "description": "peut jouer avec un seul pokemon durant les 10 prochaines minutes tiré aléatoirement",
+      "probability": "5"
+    },
+    {
+      "description": "pas d’xp pendant 30 minutes",
+      "probability": "10"
+    },
+    {
+      "description": "doit faire la prochaine arène maintenant",
+      "probability": "5"
+    }
+  ],
+  "Neutre": [
+    {
+      "description": "cosplay Mario durant le reste du live",
+      "probability": "1"
+    },
+    {
+      "description": "c’est le tchat qui contrôle le jeu pendant 10 minutes",
+      "probability": "12"
+    }
+  ],
+  "Bonus": [
+    {
+      "description": "pas de malus",
+      "probability": "8"
+    },
+    {
+      "description": "pas de malus",
+      "probability": "8"
+    },
+    {
+      "description": "pas de malus",
+      "probability": "8"
+    }
+  ]
+}
