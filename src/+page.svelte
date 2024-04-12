@@ -204,7 +204,7 @@
         <div bind:this={wheelElement}></div>
         <div class="hidden font-bold text-xl" id="tooltip"></div>
     </section>
-    <button class="mt-28" class:spinning on:click={spinWheel}>Lancer la roue</button>
+    <button class="mt-28 {(spinning ? 'bg-red-600' : '')}" class:spinning on:click={spinWheel}>Lancer la roue</button>
     <section class="mt-40" id="details">
         <p>Site réalisé par <a href="https://farmeurimmo.fr">Farmeurimmo</a> | Open Source sur <a href="https://github.com/Farmeurimmo/ChallengeWheel">GitHub</a></p>
     </section>
